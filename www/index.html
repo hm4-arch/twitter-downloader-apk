@@ -54,7 +54,27 @@ height:50px;
 "
 >
 
+<input id="url" placeholder="https://x.com/usuario">
+
+<button onclick="descargar()">
 DESCARGAR
+</button>
+
+<script>
+async function descargar() {
+    const url =
+        document.getElementById("url").value;
+
+    if (!url) {
+        alert("Pegá una URL");
+        return;
+    }
+
+    alert("Descarga iniciada:\n" + url);
+
+    window.open(url, "_blank");
+}
+</script>
 
 </button>
 
