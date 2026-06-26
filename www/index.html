@@ -83,4 +83,6 @@ url:url
 })
 .then(r=>r.text())
 .then(alert)
-.catch(console.error);
+.catch(e=>{
+alert("ERROR:\n"+e);
+});
