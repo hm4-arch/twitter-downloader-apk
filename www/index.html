@@ -70,19 +70,40 @@ async function descargar() {
         return;
     }
 
-    alert("VERSION NUEVA");
+    alert("ANTES DEL FETCH");
 
-fetch("http://127.0.0.1:5000/download",{
+try {
+
+const r =
+await fetch(
+"http://127.0.0.1:5000/download",
+{
 method:"POST",
+
 headers:{
-"Content-Type":"application/json"
+"Content-Type":
+"application/json"
 },
+
 body:JSON.stringify({
 url:url
 })
-})
-.then(r=>r.text())
-.then(alert)
-.catch(e=>{
-alert("ERROR:\n"+e);
-});
+
+}
+);
+
+alert("FETCH OK");
+
+const t =
+await r.text();
+
+alert(t);
+
+}catch(e){
+
+alert(
+"ERROR\n"+
+String(e)
+);
+
+}
