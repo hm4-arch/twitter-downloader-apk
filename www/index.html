@@ -72,12 +72,15 @@ async function descargar() {
 
     alert("Descarga iniciada:\n" + url);
 
-    window.open(url, "_blank");
-}
-</script>
-
-</button>
-
-</body>
-
-</html>
+fetch("http://127.0.0.1:5000/download",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+url:url
+})
+})
+.then(r=>r.text())
+.then(alert)
+.catch(console.error);
